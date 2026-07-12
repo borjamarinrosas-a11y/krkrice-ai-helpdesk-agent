@@ -90,3 +90,7 @@ python -m pytest -q
 
 The repository uses synthetic company data only. Keep `.env` private; it contains the
 OpenAI key and Jira API credentials and is excluded from version control.
+
+## License
+
+Released under the [MIT License](LICENSE).
