@@ -7,6 +7,16 @@ Portfolio project for a fictional rice exporter in Kraków. The service monitors
 classifies IT requests with OpenAI, retrieves approved internal knowledge, takes a safe
 action, routes work to stable Jira Teams, and records every decision for review.
 
+![KRkRice AI Helpdesk dashboard](docs/images/dashboard.png)
+
+## Demo in 60 seconds
+
+1. Start the API and autonomous worker using the commands below.
+2. Create a ticket in the Jira `SUP` project.
+3. Watch the worker choose `respond`, `route`, or `escalate`.
+4. Open the ticket to see its public reply or internal note, routing labels, and assigned Team.
+5. Open the control-room dashboard to review the audit event and jump back to Jira.
+
 ## Architecture
 
 ```text
