@@ -1,5 +1,8 @@
 # KRkRice Autonomous Helpdesk Agent
 
+[![Tests](https://github.com/borjamarinrosas-a11y/krkrice-ai-helpdesk-agent/actions/workflows/tests.yml/badge.svg)](https://github.com/borjamarinrosas-a11y/krkrice-ai-helpdesk-agent/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 Portfolio project for a fictional rice exporter in Kraków. The service monitors Jira,
 classifies IT requests with OpenAI, retrieves approved internal knowledge, takes a safe
 action, routes work to stable Jira Teams, and records every decision for review.
