@@ -1,0 +1,101 @@
+employee_id,full_name,email,department,job_title,location,manager_employee_id,cost_centre,employment_status,hire_date,languages
+EMP-001,Hanna Mazur,hanna.mazur@krkrice.example,Export Sales,Head of Export Sales,Kraków Headquarters,,2021,Active,2018-02-02,English
+EMP-002,Marta Dąbrowski,marta.dabrowski@krkrice.example,Export Sales,Export Sales Executive,Kraków Headquarters,EMP-001,2022,Active,2019-03-03,English
+EMP-003,Sara Szymański,sara.szymanski@krkrice.example,Export Sales,Sales Operations Coordinator,Kraków Headquarters,EMP-001,2023,Active,2020-04-04,English
+EMP-004,Carlos Lewandowski,carlos.lewandowski@krkrice.example,Export Sales,Account Manager,Kraków Headquarters,EMP-001,2024,Active,2021-05-05,English
+EMP-005,Katarzyna Bąk,katarzyna.bak@krkrice.example,Export Sales,Account Manager,Kraków Headquarters,EMP-001,2025,Active,2022-06-06,English
+EMP-006,Nadia Rahman,nadia.rahman@krkrice.example,Export Sales,Sales Operations Coordinator,Kraków Headquarters,EMP-001,2026,Active,2023-07-07,English
+EMP-007,Zofia Kowalski,zofia.kowalski@krkrice.example,Export Sales,Account Manager,Kraków Headquarters,EMP-001,2027,Active,2024-08-08,English
+EMP-008,Hanna Zieliński,hanna.zielinski@krkrice.example,Export Sales,Account Manager,Remote - Poland,EMP-001,2028,Active,2025-09-09,English
+EMP-009,Marta O'Connor,marta.oconnor@krkrice.example,Export Sales,Export Sales Executive,Kraków Headquarters,EMP-001,2029,Active,2017-10-10,"Polish, English"
+EMP-010,Sara Jankowski,sara.jankowski@krkrice.example,Export Sales,Export Sales Executive,Kraków Headquarters,EMP-001,2020,Active,2018-11-11,English
+EMP-011,Carlos Wójcik,carlos.wojcik@krkrice.example,Export Sales,Sales Operations Coordinator,Kraków Headquarters,EMP-001,2021,Active,2019-12-12,English
+EMP-012,Katarzyna Mazur,katarzyna.mazur@krkrice.example,Export Sales,Account Manager,Kraków Headquarters,EMP-001,2022,Active,2020-01-13,English
+EMP-013,Nadia Dąbrowski,nadia.dabrowski@krkrice.example,Export Sales,Account Manager,Kraków Headquarters,EMP-001,2023,Active,2021-02-14,English
+EMP-014,Zofia Szymański,zofia.szymanski@krkrice.example,Export Sales,Sales Operations Coordinator,Kraków Headquarters,EMP-001,2024,Active,2022-03-15,English
+EMP-015,Hanna Lewandowski,hanna.lewandowski@krkrice.example,Export Sales,Sales Operations Coordinator,Kraków Headquarters,EMP-001,2025,Active,2023-04-16,English
+EMP-016,Marta Bąk,marta.bak@krkrice.example,Export Sales,Account Manager,Remote - Poland,EMP-001,2026,Active,2024-05-17,English
+EMP-017,Sara Rahman,sara.rahman@krkrice.example,Export Sales,Sales Operations Coordinator,Kraków Headquarters,EMP-001,2027,Active,2025-06-18,English
+EMP-018,Marek Alvarez,marek.alvarez@krkrice.example,Logistics,Head of Logistics,Kraków Headquarters,,2028,Active,2017-07-19,"Polish, English"
+EMP-019,Piotr Pawlak,piotr.pawlak@krkrice.example,Logistics,Customs Documentation Specialist,Kraków Headquarters,EMP-018,2029,Active,2018-08-20,English
+EMP-020,Aisha Kaczmarek,aisha.kaczmarek@krkrice.example,Logistics,Shipment Planner,Kraków Headquarters,EMP-018,2020,Active,2019-09-21,English
+EMP-021,Karolina Zając,karolina.zajac@krkrice.example,Logistics,Shipment Planner,Kraków Headquarters,EMP-018,2021,Active,2020-10-22,English
+EMP-022,Michał Nowak,michal.nowak@krkrice.example,Logistics,Customs Documentation Specialist,Kraków Headquarters,EMP-018,2022,Active,2021-11-23,English
+EMP-023,Yuki Garcia,yuki.garcia@krkrice.example,Logistics,Shipment Planner,Kraków Headquarters,EMP-018,2023,Active,2022-12-24,English
+EMP-024,Fatima Tanaka,fatima.tanaka@krkrice.example,Logistics,Shipment Planner,Remote - Poland,EMP-018,2024,Active,2023-01-25,English
+EMP-025,Marek Lis,marek.lis@krkrice.example,Logistics,Shipment Planner,Kraków Headquarters,EMP-018,2025,Active,2024-02-01,English
+EMP-026,Piotr Chen,piotr.chen@krkrice.example,Logistics,Customs Documentation Specialist,Kraków Headquarters,EMP-018,2026,Active,2025-03-02,English
+EMP-027,Aisha Sikora,aisha.sikora@krkrice.example,Logistics,Logistics Coordinator,Kraków Headquarters,EMP-018,2027,Active,2017-04-03,"Polish, English"
+EMP-028,Karolina Krawczyk,karolina.krawczyk@krkrice.example,Logistics,Shipment Planner,Kraków Headquarters,EMP-018,2028,Active,2018-05-04,English
+EMP-029,Michał Alvarez,michal.alvarez@krkrice.example,Logistics,Shipment Planner,Kraków Headquarters,EMP-018,2029,Active,2019-06-05,English
+EMP-030,Yuki Pawlak,yuki.pawlak@krkrice.example,Logistics,Logistics Coordinator,Kraków Headquarters,EMP-018,2020,Active,2020-07-06,English
+EMP-031,Fatima Kaczmarek,fatima.kaczmarek@krkrice.example,Logistics,Customs Documentation Specialist,Kraków Headquarters,EMP-018,2021,Active,2021-08-07,English
+EMP-032,Marek Zając,marek.zajac@krkrice.example,Logistics,Shipment Planner,Remote - Poland,EMP-018,2022,Active,2022-09-08,English
+EMP-033,Hanna Mazur,hanna.mazur@krkrice.example,Warehouse,Head of Warehouse,Kraków Operations Centre,,2023,Active,2023-10-09,English
+EMP-034,Marta Dąbrowski,marta.dabrowski@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2024,Active,2024-11-10,English
+EMP-035,Sara Szymański,sara.szymanski@krkrice.example,Warehouse,Warehouse Operator,Kraków Operations Centre,EMP-033,2025,Active,2025-12-11,English
+EMP-036,Carlos Lewandowski,carlos.lewandowski@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2026,Active,2017-01-12,"Polish, English"
+EMP-037,Katarzyna Bąk,katarzyna.bak@krkrice.example,Warehouse,Warehouse Operator,Kraków Operations Centre,EMP-033,2027,Active,2018-02-13,English
+EMP-038,Nadia Rahman,nadia.rahman@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2028,Active,2019-03-14,English
+EMP-039,Zofia Kowalski,zofia.kowalski@krkrice.example,Warehouse,Inventory Controller,Kraków Operations Centre,EMP-033,2029,Active,2020-04-15,English
+EMP-040,Hanna Zieliński,hanna.zielinski@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2020,Active,2021-05-16,English
+EMP-041,Marta O'Connor,marta.oconnor@krkrice.example,Warehouse,Inventory Controller,Kraków Operations Centre,EMP-033,2021,Active,2022-06-17,English
+EMP-042,Sara Jankowski,sara.jankowski@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2022,Active,2023-07-18,English
+EMP-043,Carlos Wójcik,carlos.wojcik@krkrice.example,Warehouse,Inventory Controller,Kraków Operations Centre,EMP-033,2023,Active,2024-08-19,English
+EMP-044,Katarzyna Mazur,katarzyna.mazur@krkrice.example,Warehouse,Inventory Controller,Kraków Operations Centre,EMP-033,2024,Active,2025-09-20,English
+EMP-045,Nadia Dąbrowski,nadia.dabrowski@krkrice.example,Warehouse,Warehouse Operator,Kraków Operations Centre,EMP-033,2025,Active,2017-10-21,"Polish, English"
+EMP-046,Zofia Szymański,zofia.szymanski@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2026,Active,2018-11-22,English
+EMP-047,Hanna Lewandowski,hanna.lewandowski@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2027,Active,2019-12-23,English
+EMP-048,Marta Bąk,marta.bak@krkrice.example,Warehouse,Warehouse Operator,Kraków Operations Centre,EMP-033,2028,Active,2020-01-24,English
+EMP-049,Sara Rahman,sara.rahman@krkrice.example,Warehouse,Inventory Controller,Kraków Operations Centre,EMP-033,2029,Active,2021-02-25,English
+EMP-050,Carlos Kowalski,carlos.kowalski@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2020,Active,2022-03-01,English
+EMP-051,Katarzyna Zieliński,katarzyna.zielinski@krkrice.example,Warehouse,Warehouse Operator,Kraków Operations Centre,EMP-033,2021,Active,2023-04-02,English
+EMP-052,Nadia O'Connor,nadia.oconnor@krkrice.example,Warehouse,Inventory Controller,Kraków Operations Centre,EMP-033,2022,Active,2024-05-03,English
+EMP-053,Zofia Jankowski,zofia.jankowski@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2023,Active,2025-06-04,English
+EMP-054,Hanna Wójcik,hanna.wojcik@krkrice.example,Warehouse,Shift Supervisor,Kraków Operations Centre,EMP-033,2024,Active,2017-07-05,"Polish, English"
+EMP-055,Marta Mazur,marta.mazur@krkrice.example,Warehouse,Inventory Controller,Kraków Operations Centre,EMP-033,2025,Active,2018-08-06,English
+EMP-056,Aleksandra Alvarez,aleksandra.alvarez@krkrice.example,Quality Control,Head of Quality Control,Kraków Operations Centre,,2026,Active,2019-09-07,English
+EMP-057,Jakub Pawlak,jakub.pawlak@krkrice.example,Quality Control,Lab Technician,Kraków Operations Centre,EMP-056,2027,Active,2020-10-08,English
+EMP-058,Mateusz Kaczmarek,mateusz.kaczmarek@krkrice.example,Quality Control,Certification Specialist,Kraków Operations Centre,EMP-056,2028,Active,2021-11-09,English
+EMP-059,Sofia Zając,sofia.zajac@krkrice.example,Quality Control,Quality Analyst,Kraków Operations Centre,EMP-056,2029,Active,2022-12-10,English
+EMP-060,Daniel Nowak,daniel.nowak@krkrice.example,Quality Control,Lab Technician,Kraków Operations Centre,EMP-056,2020,Active,2023-01-11,English
+EMP-061,Liam Garcia,liam.garcia@krkrice.example,Quality Control,Certification Specialist,Kraków Operations Centre,EMP-056,2021,Active,2024-02-12,English
+EMP-062,Noah Tanaka,noah.tanaka@krkrice.example,Quality Control,Certification Specialist,Kraków Operations Centre,EMP-056,2022,Active,2025-03-13,English
+EMP-063,Aleksandra Lis,aleksandra.lis@krkrice.example,Quality Control,Certification Specialist,Kraków Operations Centre,EMP-056,2023,Active,2017-04-14,"Polish, English"
+EMP-064,Aleksandra Alvarez,aleksandra.alvarez@krkrice.example,Finance,Head of Finance,Remote - Poland,,2024,Active,2018-05-15,English
+EMP-065,Jakub Pawlak,jakub.pawlak@krkrice.example,Finance,Controller,Kraków Headquarters,EMP-064,2025,Active,2019-06-16,English
+EMP-066,Mateusz Kaczmarek,mateusz.kaczmarek@krkrice.example,Finance,Accounts Payable Specialist,Kraków Headquarters,EMP-064,2026,Active,2020-07-17,English
+EMP-067,Sofia Zając,sofia.zajac@krkrice.example,Finance,Accounts Payable Specialist,Kraków Headquarters,EMP-064,2027,Active,2021-08-18,English
+EMP-068,Daniel Nowak,daniel.nowak@krkrice.example,Finance,Accounts Payable Specialist,Kraków Headquarters,EMP-064,2028,Active,2022-09-19,English
+EMP-069,Liam Garcia,liam.garcia@krkrice.example,Finance,Accounts Payable Specialist,Kraków Headquarters,EMP-064,2029,Active,2023-10-20,English
+EMP-070,Noah Tanaka,noah.tanaka@krkrice.example,Finance,Controller,Kraków Headquarters,EMP-064,2020,Active,2024-11-21,English
+EMP-071,Aleksandra Lis,aleksandra.lis@krkrice.example,Finance,Controller,Kraków Headquarters,EMP-064,2021,Active,2025-12-22,English
+EMP-072,Jakub Chen,jakub.chen@krkrice.example,Finance,Financial Analyst,Remote - Poland,EMP-064,2022,Active,2017-01-23,"Polish, English"
+EMP-073,Mateusz Sikora,mateusz.sikora@krkrice.example,Finance,Accounts Payable Specialist,Kraków Headquarters,EMP-064,2023,Active,2018-02-24,English
+EMP-074,Marek Alvarez,marek.alvarez@krkrice.example,Procurement,Head of Procurement,Kraków Headquarters,,2024,Active,2019-03-25,English
+EMP-075,Piotr Pawlak,piotr.pawlak@krkrice.example,Procurement,Buyer,Kraków Headquarters,EMP-074,2025,Active,2020-04-01,English
+EMP-076,Aisha Kaczmarek,aisha.kaczmarek@krkrice.example,Procurement,Supplier Manager,Kraków Headquarters,EMP-074,2026,Active,2021-05-02,English
+EMP-077,Karolina Zając,karolina.zajac@krkrice.example,Procurement,Supplier Manager,Kraków Headquarters,EMP-074,2027,Active,2022-06-03,English
+EMP-078,Michał Nowak,michal.nowak@krkrice.example,Procurement,Procurement Specialist,Kraków Headquarters,EMP-074,2028,Active,2023-07-04,English
+EMP-079,Yuki Garcia,yuki.garcia@krkrice.example,Procurement,Procurement Specialist,Kraków Headquarters,EMP-074,2029,Active,2024-08-05,English
+EMP-080,Fatima Tanaka,fatima.tanaka@krkrice.example,Procurement,Buyer,Remote - Poland,EMP-074,2020,Active,2025-09-06,English
+EMP-081,Hanna Mazur,hanna.mazur@krkrice.example,Operations,Head of Operations,Kraków Operations Centre,,2021,Active,2017-10-07,"Polish, English"
+EMP-082,Marta Dąbrowski,marta.dabrowski@krkrice.example,Operations,Operations Planner,Kraków Operations Centre,EMP-081,2022,Active,2018-11-08,English
+EMP-083,Sara Szymański,sara.szymanski@krkrice.example,Operations,Operations Planner,Kraków Operations Centre,EMP-081,2023,Active,2019-12-09,English
+EMP-084,Carlos Lewandowski,carlos.lewandowski@krkrice.example,Operations,Process Analyst,Kraków Operations Centre,EMP-081,2024,Active,2020-01-10,English
+EMP-085,Katarzyna Bąk,katarzyna.bak@krkrice.example,Operations,Production Coordinator,Kraków Operations Centre,EMP-081,2025,Active,2021-02-11,English
+EMP-086,Nadia Rahman,nadia.rahman@krkrice.example,Operations,Production Coordinator,Kraków Operations Centre,EMP-081,2026,Active,2022-03-12,English
+EMP-087,Zofia Kowalski,zofia.kowalski@krkrice.example,Operations,Process Analyst,Kraków Operations Centre,EMP-081,2027,Active,2023-04-13,English
+EMP-088,Hanna Zieliński,hanna.zielinski@krkrice.example,Operations,Operations Planner,Kraków Operations Centre,EMP-081,2028,Active,2024-05-14,English
+EMP-089,Marta O'Connor,marta.oconnor@krkrice.example,Operations,Process Analyst,Kraków Operations Centre,EMP-081,2029,Active,2025-06-15,English
+EMP-090,Sara Jankowski,sara.jankowski@krkrice.example,Operations,Process Analyst,Kraków Operations Centre,EMP-081,2020,Active,2017-07-16,"Polish, English"
+EMP-091,Ola Mazur,ola.mazur@krkrice.example,HR & Administration,Head of HR & Administration,Kraków Headquarters,,2021,Active,2018-08-17,English
+EMP-092,Anna Dąbrowski,anna.dabrowski@krkrice.example,HR & Administration,Office Administrator,Kraków Headquarters,EMP-091,2022,Active,2019-09-18,English
+EMP-093,Jan Szymański,jan.szymanski@krkrice.example,HR & Administration,People Operations Coordinator,Kraków Headquarters,EMP-091,2023,Active,2020-10-19,English
+EMP-094,Maya Lewandowski,maya.lewandowski@krkrice.example,HR & Administration,HR Specialist,Kraków Headquarters,EMP-091,2024,Active,2021-11-20,English
+EMP-095,Tomasz Bąk,tomasz.bak@krkrice.example,HR & Administration,People Operations Coordinator,Kraków Headquarters,EMP-091,2025,Active,2022-12-21,English
+EMP-096,Aleksandra Alvarez,aleksandra.alvarez@krkrice.example,IT,Head of IT,Remote - Poland,,2026,Active,2023-01-22,English
+EMP-097,Jakub Pawlak,jakub.pawlak@krkrice.example,IT,Systems Administrator,Kraków Headquarters,EMP-096,2027,Active,2024-02-23,English
+EMP-098,Mateusz Kaczmarek,mateusz.kaczmarek@krkrice.example,IT,Security Analyst,Kraków Headquarters,EMP-096,2028,Active,2025-03-24,English
+EMP-099,Sofia Zając,sofia.zajac@krkrice.example,IT,Security Analyst,Kraków Headquarters,EMP-096,2029,Active,2017-04-25,"Polish, English"
+EMP-100,Daniel Nowak,daniel.nowak@krkrice.example,IT,Security Analyst,Kraków Headquarters,EMP-096,2020,Active,2018-05-01,English

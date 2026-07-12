@@ -1,0 +1,14 @@
+{
+  "outputPath": "/Users/borjamarinrosas/Documents/Project Agentic/outputs/krkrice_it_dataset/krkrice_it_service_dataset.xlsx",
+  "counts": {
+    "employees": 100,
+    "assets": 80,
+    "systems": 20,
+    "agents": 5,
+    "knowledge_articles": 25,
+    "historical_tickets": 100
+  },
+  "broken_relationships": [],
+  "csvDir": "/Users/borjamarinrosas/Documents/Project Agentic/outputs/krkrice_it_dataset/csv",
+  "previewDir": "/Users/borjamarinrosas/Documents/Project Agentic/outputs/krkrice_it_dataset/previews"
+}

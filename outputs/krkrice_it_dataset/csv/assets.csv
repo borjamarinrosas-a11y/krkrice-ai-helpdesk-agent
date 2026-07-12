@@ -1,0 +1,81 @@
+asset_id,asset_type,model,serial_number,assigned_employee_id,location,status,purchase_date,warranty_end,operating_system
+AST-001,Monitor,Dell P2422H,KRK260073,EMP-014,Kraków Headquarters,In service,2022-02-02,2025-02-02,Not applicable
+AST-002,Barcode Scanner,Zebra TC52,KRK260146,EMP-035,Kraków Operations Centre,In service,2023-03-03,2026-03-03,Android 13
+AST-003,Windows Laptop,HP EliteBook 840,KRK260219,EMP-040,Kraków Operations Centre,In service,2024-04-04,2027-04-04,Windows 11 Enterprise
+AST-004,Docking Station,Lenovo USB-C Dock Gen 2,KRK260292,EMP-053,Kraków Operations Centre,In service,2025-05-05,2024-05-05,Not applicable
+AST-005,Label Printer,Zebra ZD421,KRK260365,EMP-038,Kraków Operations Centre,In service,2021-06-06,2025-06-06,Firmware managed
+AST-006,Warehouse Tablet,Samsung Tab Active4 Pro,KRK260438,EMP-039,Kraków Operations Centre,In service,2022-07-07,2026-07-07,Android 13
+AST-007,Windows Laptop,Lenovo ThinkPad T14,KRK260511,EMP-092,Kraków Headquarters,In service,2023-08-08,2027-08-08,Windows 11 Enterprise
+AST-008,Monitor,LG 27BN65Q,KRK260584,EMP-005,Kraków Headquarters,In service,2024-09-09,2024-09-09,Not applicable
+AST-009,Barcode Scanner,Zebra TC52,KRK260657,Shared,Kraków Operations Centre,In service,2025-10-10,2025-10-10,Android 13
+AST-010,Windows Laptop,Lenovo ThinkPad T14,KRK260730,EMP-031,Kraków Headquarters,In service,2021-11-11,2026-11-11,Windows 11 Enterprise
+AST-011,Docking Station,Lenovo USB-C Dock Gen 2,KRK260803,Shared,Kraków Operations Centre,In service,2022-12-12,2027-12-12,Not applicable
+AST-012,Label Printer,Zebra ZD421,KRK260876,EMP-045,Kraków Operations Centre,In service,2023-01-13,2024-01-13,Firmware managed
+AST-013,Warehouse Tablet,Zebra ET45,KRK260949,EMP-046,Kraków Operations Centre,In service,2024-02-14,2025-02-14,Android 13
+AST-014,Windows Laptop,HP EliteBook 840,KRK261022,EMP-083,Kraków Operations Centre,In service,2025-03-15,2026-03-15,Windows 11 Enterprise
+AST-015,Monitor,Dell P2422H,KRK261095,EMP-096,Remote - Poland,In service,2021-04-16,2027-04-16,Not applicable
+AST-016,Barcode Scanner,Honeywell CT45,KRK261168,EMP-049,Kraków Operations Centre,In service,2022-05-17,2024-05-17,Android 13
+AST-017,Windows Laptop,HP EliteBook 840,KRK261241,EMP-022,Kraków Headquarters,In service,2023-06-18,2025-06-18,Windows 11 Enterprise
+AST-018,Docking Station,Dell WD19S,KRK261314,EMP-035,Kraków Operations Centre,In service,2024-07-19,2026-07-19,Not applicable
+AST-019,Label Printer,Zebra ZT411,KRK261387,EMP-052,Kraków Operations Centre,In service,2025-08-20,2027-08-20,Firmware managed
+AST-020,Warehouse Tablet,Zebra ET45,KRK261460,EMP-053,Kraków Operations Centre,In service,2021-09-21,2024-09-21,Android 13
+AST-021,Windows Laptop,Dell Latitude 5450,KRK261533,EMP-074,Kraków Headquarters,In service,2022-10-22,2025-10-22,Windows 11 Enterprise
+AST-022,Monitor,LG 27BN65Q,KRK261606,Shared,Kraków Operations Centre,In service,2023-11-23,2026-11-23,Not applicable
+AST-023,Barcode Scanner,Honeywell CT45,KRK261679,EMP-033,Kraków Operations Centre,In service,2024-12-24,2027-12-24,Android 13
+AST-024,Windows Laptop,Dell Latitude 5450,KRK261752,EMP-013,Kraków Headquarters,In service,2025-01-01,2024-01-01,Windows 11 Enterprise
+AST-025,Docking Station,Lenovo USB-C Dock Gen 2,KRK261825,EMP-026,Kraków Headquarters,In service,2021-02-02,2025-02-02,Not applicable
+AST-026,Label Printer,Zebra ZT411,KRK261898,EMP-036,Kraków Operations Centre,In service,2022-03-03,2026-03-03,Firmware managed
+AST-027,Warehouse Tablet,Samsung Tab Active4 Pro,KRK261971,Shared,Kraków Operations Centre,In service,2023-04-04,2027-04-04,Android 13
+AST-028,Windows Laptop,Dell Latitude 5450,KRK262044,EMP-065,Kraków Headquarters,In service,2024-05-05,2024-05-05,Windows 11 Enterprise
+AST-029,Monitor,Dell P2422H,KRK262117,EMP-078,Kraków Headquarters,In service,2025-06-06,2025-06-06,Not applicable
+AST-030,Barcode Scanner,Zebra TC52,KRK262190,EMP-040,Kraków Operations Centre,In service,2021-07-07,2026-07-07,Android 13
+AST-031,Windows Laptop,Lenovo ThinkPad T14,KRK262263,EMP-004,Kraków Headquarters,In service,2022-08-08,2027-08-08,Windows 11 Enterprise
+AST-032,Docking Station,Dell WD19S,KRK262336,EMP-017,Kraków Headquarters,In service,2023-09-09,2024-09-09,Not applicable
+AST-033,Label Printer,Zebra ZD421,KRK262409,EMP-043,Kraków Operations Centre,In service,2024-10-10,2025-10-10,Firmware managed
+AST-034,Warehouse Tablet,Samsung Tab Active4 Pro,KRK262482,EMP-044,Kraków Operations Centre,Repair,2025-11-11,2026-11-11,Android 13
+AST-035,Windows Laptop,Lenovo ThinkPad T14,KRK262555,EMP-056,Kraków Operations Centre,In service,2021-12-12,2027-12-12,Windows 11 Enterprise
+AST-036,Monitor,Dell P2422H,KRK262628,EMP-069,Kraków Headquarters,In service,2022-01-13,2024-01-13,Not applicable
+AST-037,Barcode Scanner,Zebra TC52,KRK262701,EMP-047,Kraków Operations Centre,In service,2023-02-14,2025-02-14,Android 13
+AST-038,Windows Laptop,Dell Latitude 5450,KRK262774,EMP-095,Kraków Headquarters,Repair,2024-03-15,2026-03-15,Windows 11 Enterprise
+AST-039,Docking Station,Lenovo USB-C Dock Gen 2,KRK262847,EMP-008,Remote - Poland,In service,2025-04-16,2027-04-16,Not applicable
+AST-040,Label Printer,Zebra ZT411,KRK262920,EMP-050,Kraków Operations Centre,In service,2021-05-17,2024-05-17,Firmware managed
+AST-041,Warehouse Tablet,Samsung Tab Active4 Pro,KRK262993,EMP-051,Kraków Operations Centre,In service,2022-06-18,2025-06-18,Android 13
+AST-042,Windows Laptop,HP EliteBook 840,KRK263066,EMP-047,Kraków Operations Centre,In service,2023-07-19,2026-07-19,Windows 11 Enterprise
+AST-043,Monitor,LG 27BN65Q,KRK263139,EMP-060,Kraków Operations Centre,In service,2024-08-20,2027-08-20,Not applicable
+AST-044,Barcode Scanner,Honeywell CT45,KRK263212,EMP-054,Kraków Operations Centre,In service,2025-09-21,2024-09-21,Android 13
+AST-045,Windows Laptop,Dell Latitude 5450,KRK263285,EMP-086,Kraków Operations Centre,In service,2021-10-22,2025-10-22,Windows 11 Enterprise
+AST-046,Docking Station,Lenovo USB-C Dock Gen 2,KRK263358,EMP-099,Kraków Headquarters,In service,2022-11-23,2026-11-23,Not applicable
+AST-047,Label Printer,Zebra ZD421,KRK263431,EMP-034,Kraków Operations Centre,In service,2023-12-24,2027-12-24,Firmware managed
+AST-048,Warehouse Tablet,Zebra ET45,KRK263504,EMP-035,Kraków Operations Centre,In service,2024-01-01,2024-01-01,Android 13
+AST-049,Windows Laptop,Lenovo ThinkPad T14,KRK263577,EMP-038,Kraków Operations Centre,In service,2025-02-02,2025-02-02,Windows 11 Enterprise
+AST-050,Monitor,Dell P2422H,KRK263650,EMP-051,Kraków Operations Centre,In service,2021-03-03,2026-03-03,Not applicable
+AST-051,Barcode Scanner,Honeywell CT45,KRK263723,EMP-038,Kraków Operations Centre,Repair,2022-04-04,2027-04-04,Android 13
+AST-052,Windows Laptop,HP EliteBook 840,KRK263796,EMP-077,Kraków Headquarters,In service,2023-05-05,2024-05-05,Windows 11 Enterprise
+AST-053,Docking Station,Dell WD19S,KRK263869,EMP-090,Kraków Operations Centre,In service,2024-06-06,2025-06-06,Not applicable
+AST-054,Label Printer,Zebra ZT411,KRK263942,Shared,Kraków Operations Centre,In service,2025-07-07,2026-07-07,Firmware managed
+AST-055,Warehouse Tablet,Zebra ET45,KRK264015,EMP-042,Kraków Operations Centre,In service,2021-08-08,2027-08-08,Android 13
+AST-056,Windows Laptop,Dell Latitude 5450,KRK264088,EMP-029,Kraków Headquarters,In service,2022-09-09,2024-09-09,Windows 11 Enterprise
+AST-057,Monitor,Dell P2422H,KRK264161,EMP-042,Kraków Operations Centre,Repair,2023-10-10,2025-10-10,Not applicable
+AST-058,Barcode Scanner,Honeywell CT45,KRK264234,EMP-045,Kraków Operations Centre,In service,2024-11-11,2026-11-11,Android 13
+AST-059,Windows Laptop,Lenovo ThinkPad T14,KRK264307,EMP-068,Kraków Headquarters,In service,2025-12-12,2027-12-12,Windows 11 Enterprise
+AST-060,Docking Station,Dell WD19S,KRK264380,EMP-081,Kraków Operations Centre,In service,2021-01-13,2024-01-13,Not applicable
+AST-061,Label Printer,Zebra ZT411,KRK264453,EMP-048,Kraków Operations Centre,In service,2022-02-14,2025-02-14,Firmware managed
+AST-062,Warehouse Tablet,Zebra ET45,KRK264526,EMP-049,Kraków Operations Centre,In service,2023-03-15,2026-03-15,Android 13
+AST-063,Windows Laptop,Lenovo ThinkPad T14,KRK264599,EMP-020,Kraków Headquarters,In service,2024-04-16,2027-04-16,Windows 11 Enterprise
+AST-064,Monitor,Dell P2422H,KRK264672,EMP-033,Kraków Operations Centre,In service,2025-05-17,2024-05-17,Not applicable
+AST-065,Barcode Scanner,Zebra TC52,KRK264745,EMP-052,Kraków Operations Centre,In service,2021-06-18,2025-06-18,Android 13
+AST-066,Windows Laptop,Lenovo ThinkPad T14,KRK264818,Shared,Kraków Operations Centre,In service,2022-07-19,2026-07-19,Windows 11 Enterprise
+AST-067,Docking Station,Lenovo USB-C Dock Gen 2,KRK264891,EMP-072,Remote - Poland,In service,2023-08-20,2027-08-20,Not applicable
+AST-068,Label Printer,Zebra ZD421,KRK264964,EMP-055,Kraków Operations Centre,Repair,2024-09-21,2024-09-21,Firmware managed
+AST-069,Warehouse Tablet,Zebra ET45,KRK265037,EMP-033,Kraków Operations Centre,In service,2025-10-22,2025-10-22,Android 13
+AST-070,Windows Laptop,Dell Latitude 5450,KRK265110,EMP-011,Kraków Headquarters,In service,2021-11-23,2026-11-23,Windows 11 Enterprise
+AST-071,Monitor,LG 27BN65Q,KRK265183,EMP-024,Remote - Poland,In service,2022-12-24,2027-12-24,Not applicable
+AST-072,Barcode Scanner,Zebra TC52,KRK265256,Shared,Kraków Operations Centre,In service,2023-01-01,2024-01-01,Android 13
+AST-073,Windows Laptop,HP EliteBook 840,KRK265329,EMP-050,Kraków Operations Centre,In service,2024-02-02,2025-02-02,Windows 11 Enterprise
+AST-074,Docking Station,Lenovo USB-C Dock Gen 2,KRK265402,EMP-063,Kraków Operations Centre,In service,2025-03-03,2026-03-03,Not applicable
+AST-075,Label Printer,Zebra ZD421,KRK265475,EMP-039,Kraków Operations Centre,In service,2021-04-04,2027-04-04,Firmware managed
+AST-076,Warehouse Tablet,Samsung Tab Active4 Pro,KRK265548,EMP-040,Kraków Operations Centre,In service,2022-05-05,2024-05-05,Android 13
+AST-077,Windows Laptop,HP EliteBook 840,KRK265621,Shared,Kraków Headquarters,In service,2023-06-06,2025-06-06,Windows 11 Enterprise
+AST-078,Monitor,Dell P2422H,KRK265694,EMP-015,Kraków Headquarters,In service,2024-07-07,2026-07-07,Not applicable
+AST-079,Barcode Scanner,Zebra TC52,KRK265767,EMP-043,Kraków Operations Centre,In service,2025-08-08,2027-08-08,Android 13
+AST-080,Windows Laptop,HP EliteBook 840,KRK265840,EMP-041,Kraków Operations Centre,In service,2021-09-09,2024-09-09,Windows 11 Enterprise

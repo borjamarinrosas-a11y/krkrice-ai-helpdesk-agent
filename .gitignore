@@ -1,0 +1,12 @@
+.env
+.venv/
+/node_modules
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+*.inspect.ndjson
+*.db
+*.sqlite3
+data/

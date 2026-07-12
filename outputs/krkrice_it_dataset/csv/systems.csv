@@ -1,0 +1,21 @@
+system_id,system_name,category,hosting_model,criticality,business_owner,vendor,authentication,availability_target,support_owner
+SYS-001,Microsoft 365,Productivity,SaaS,Critical,IT,Microsoft,SSO + MFA,99.9%,Aisha Rahman
+SYS-002,RiceFlow ERP,ERP,SaaS,Critical,Finance,Fictional vendor,SSO + MFA,99.9%,Aisha Rahman
+SYS-003,GrainTrack WMS,Warehouse,Cloud,Critical,Warehouse,Fictional vendor,SSO,99.9%,Aisha Rahman
+SYS-004,ExportHub CRM,CRM,SaaS,High,Export Sales,Fictional vendor,SSO,99.5%,Aisha Rahman
+SYS-005,CertiRice,Quality,Web app,High,Quality Control,Fictional vendor,SSO,99.5%,Aisha Rahman
+SYS-006,ShipLink,Logistics,SaaS,High,Logistics,Fictional vendor,Username + MFA,99.5%,Aisha Rahman
+SYS-007,FortiClient VPN,Network,Hybrid,Critical,IT,Fortinet,SSO + MFA,99.9%,Mateusz Kowalski
+SYS-008,Entra ID,Identity,SaaS,Critical,IT,Microsoft,MFA,99.99%,Sofia Alvarez
+SYS-009,Jira Service Management,Helpdesk,SaaS,High,IT,Atlassian,SSO,99.9%,Sofia Alvarez
+SYS-010,SharePoint Online,Document Management,SaaS,High,IT,Microsoft,SSO + MFA,99.9%,Aisha Rahman
+SYS-011,Microsoft Teams,Collaboration,SaaS,High,IT,Microsoft,SSO + MFA,99.9%,Liam O'Connor
+SYS-012,Power BI,Analytics,SaaS,Medium,Finance,Microsoft,SSO + MFA,99.5%,Aisha Rahman
+SYS-013,Zebra Print Service,Printing,On-premises,High,Warehouse,Zebra,Service account,99.5%,Liam O'Connor
+SYS-014,Warehouse Wi-Fi,Network,On-premises,Critical,IT,Cisco,Certificate,99.9%,Mateusz Kowalski
+SYS-015,Endpoint Manager,Device Management,SaaS,High,IT,Microsoft,SSO + MFA,99.9%,Liam O'Connor
+SYS-016,CrowdStrike Endpoint,Security,SaaS,Critical,IT,CrowdStrike,SSO + MFA,99.9%,Yuki Tanaka
+SYS-017,DocuSign,Electronic Signature,SaaS,Medium,HR & Administration,DocuSign,SSO + MFA,99.5%,Aisha Rahman
+SYS-018,HR People Portal,HRIS,SaaS,High,HR & Administration,Fictional vendor,SSO + MFA,99.5%,Aisha Rahman
+SYS-019,Finance Banking Portal,Finance,SaaS,Critical,Finance,Synthetic Bank,Hardware token + MFA,99.9%,Yuki Tanaka
+SYS-020,KRkRice Status Page,Monitoring,SaaS,High,IT,Fictional vendor,SSO,99.9%,Mateusz Kowalski

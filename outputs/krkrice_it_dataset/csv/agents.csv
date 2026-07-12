@@ -1,0 +1,6 @@
+agent_id,full_name,role,specialty,support_tier,location,languages,working_hours,jira_profile_issue,status
+AGT-001,Sofia Alvarez,Senior IT Support Specialist,Identity & Access,Tier 2,Madrid,"Spanish, English",08:00-16:00 CET,SUP-4,Active
+AGT-002,Liam O'Connor,Workplace Technology Specialist,Hardware & Devices,Tier 1,Dublin,English,09:00-17:00 GMT/BST,SUP-2,Active
+AGT-003,Aisha Rahman,Business Applications Support Analyst,Business Applications,Tier 2,London,"English, Bengali",09:00-17:00 GMT/BST,SUP-3,Active
+AGT-004,Mateusz Kowalski,Network and Cloud Support Engineer,Network & Cloud,Tier 3,Warsaw,"Polish, English",08:00-16:00 CET,SUP-6,Active
+AGT-005,Yuki Tanaka,Security Support Analyst,Security,Security,Tokyo,"Japanese, English",09:00-17:00 JST,SUP-5,Active
