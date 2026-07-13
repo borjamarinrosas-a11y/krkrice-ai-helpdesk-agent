@@ -208,16 +208,24 @@ def make_decision(ticket: TicketInput, dataset: dict[str, list[dict[str, str]]])
     best_score = knowledge[0].score if knowledge else 0.0
     confidence = round(min(0.98, classification_confidence * 0.55 + best_score * 0.9), 2)
     curated_article_id = deterministic_article_id(query, category)
-    unknown_error_code = re.search(r"\b[A-Z]{2,}-\d+\b", query.upper()) is not None
+    error_codes = set(re.findall(r"\b[A-Z]{2,}-\d+\b", query.upper()))
+    top_article_text = ""
+    if knowledge:
+        top_article_row = next(
+            row for row in dataset["knowledge"] if row["article_id"] == knowledge[0].record_id
+        )
+        top_article_text = f'{top_article_row["title"]} {top_article_row["resolution_summary"]}'.upper()
+    exact_error_code_grounding = bool(error_codes) and all(code in top_article_text for code in error_codes)
     answer_is_grounded = (
         (approved_article_id is not None and approved_article_relevance >= 0.70)
         or (curated_article_id is not None and knowledge and knowledge[0].record_id == curated_article_id)
+        or exact_error_code_grounding
         if classification_method == "openai"
         else best_score >= 0.30
     )
-    if unknown_error_code:
-        # Error codes require an exact approved-code match. The synthetic KB
-        # currently contains no code-specific articles, so routing is safer.
+    if error_codes and not exact_error_code_grounding:
+        # Error codes require an exact approved-code match. A general article
+        # for the same application is not sufficient grounding.
         answer_is_grounded = False
 
     if category == "Security":

@@ -15,7 +15,7 @@
     .subtitle { color:var(--muted); margin:0; }
     .status { display:flex; align-items:center; gap:9px; background:var(--cream); border:1px solid var(--line); border-radius:999px; padding:9px 14px; box-shadow:0 8px 24px #344a3820; }
     .dot { width:9px; height:9px; background:#39a066; border-radius:50%; box-shadow:0 0 0 4px #39a06620; }
-    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .metrics { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
     .card,.panel { background:#fffef9d9; border:1px solid var(--line); box-shadow:0 14px 40px #344a3812; }
     .card { padding:19px; border-radius:16px; }
     .metric-label { color:var(--muted); font-size:13px; }
@@ -34,6 +34,7 @@
     .badge { display:inline-block; border-radius:999px; padding:4px 9px; font-size:12px; font-weight:750; background:#e8efe6; color:var(--green); }
     .badge.escalate { color:var(--red); background:#f8e7e7; }
     .badge.route { color:var(--amber); background:#f7eedf; }
+    .badge.learned { color:#315a8a; background:#e6eff9; }
     .empty,.error { color:var(--muted); padding:30px 10px; text-align:center; }
     @media(max-width:850px){ .metrics{grid-template-columns:repeat(2,1fr)} .layout{grid-template-columns:1fr} header{align-items:flex-start;flex-direction:column} }
     @media(max-width:520px){ .metrics{grid-template-columns:1fr 1fr} header,main{padding-left:16px;padding-right:16px} .table-wrap{overflow:auto} }
@@ -50,6 +51,7 @@
       <div class="card"><div class="metric-label">Answered</div><div class="metric-value" id="respond">—</div></div>
       <div class="card"><div class="metric-label">Routed</div><div class="metric-value" id="route">—</div></div>
       <div class="card"><div class="metric-label">Escalated</div><div class="metric-value" id="escalate">—</div></div>
+      <div class="card"><div class="metric-label">KB learned</div><div class="metric-value" id="learned">—</div></div>
     </section>
     <section class="layout">
       <div class="panel"><h2>Work by category</h2><div id="categories"></div></div>
@@ -59,6 +61,7 @@
   <script>
     const jiraBase = 'https://krkrice.atlassian.net/browse/';
     const decisionOf = e => {
+      if(e.event_type === 'knowledge_learned') return 'learned';
       const label = (e.labels || []).find(value => value.startsWith('decision-'));
       if(label) return label.replace('decision-', '');
       return e.action === 'add_public_comment' || e.action === 'add_internal_comment' ? 'respond' : e.action === 'escalate' ? 'escalate' : 'route';
@@ -69,7 +72,7 @@
         const response = await fetch('/api/audit?limit=200');
         if(!response.ok) throw new Error('Audit API unavailable');
         const events = await response.json();
-        const counts = {respond:0,route:0,escalate:0};
+        const counts = {respond:0,route:0,escalate:0,learned:0};
         const categories = {};
         events.forEach(e => { counts[decisionOf(e)]++; categories[e.category]=(categories[e.category]||0)+1; });
         document.querySelector('#total').textContent=events.length;

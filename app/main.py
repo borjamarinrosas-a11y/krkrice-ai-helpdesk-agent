@@ -6,10 +6,12 @@ from fastapi.responses import FileResponse
 from dotenv import load_dotenv
 
 from app.audit import init_audit_db, list_audit_events, record_approved_triage, record_triage
-from app.jira import JiraConfigurationError, JiraRequestError, add_internal_comment, add_labels, add_public_comment, assign_team, get_jira_issue, list_pending_issues
+from app.knowledge import add_learned_article, init_knowledge_db, list_learned_articles
+from app.jira import JiraConfigurationError, JiraRequestError, add_internal_comment, add_labels, add_public_comment, assign_team, get_issue_comments, get_jira_issue, list_kb_candidate_issues, list_pending_issues
+from app.learning import build_knowledge_draft, find_verified_solution, owner_for_category
 from app.repository import load_dataset
-from app.schemas import AutonomousConfirmation, AutonomousTriageResult, ApprovedTriageResult, AuditEvent, JiraCommentPreview, JiraCommentResult, JiraRoutingResult, PendingJiraIssue, PublishConfirmation, TicketInput, TriageDecision
-from app.triage import make_decision
+from app.schemas import AutonomousConfirmation, AutonomousTriageResult, ApprovedTriageResult, AuditEvent, JiraCommentPreview, JiraCommentResult, JiraRoutingResult, KnowledgeCandidatePreview, LearnedKnowledgeArticle, LearnConfirmation, LearningRunConfirmation, PendingJiraIssue, PublishConfirmation, TicketInput, TriageDecision
+from app.triage import TEAM_BY_CATEGORY, make_decision
 
 
 load_dotenv()
@@ -19,6 +21,7 @@ STATIC_DIR = Path(__file__).resolve().parent / "static"
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_audit_db()
+    init_knowledge_db()
     app.state.dataset = load_dataset()
     yield
 
@@ -295,3 +298,117 @@ def autonomous_jira_run(
 @app.get("/api/audit", response_model=list[AuditEvent])
 def audit_events(limit: int = 50) -> list[AuditEvent]:
     return [AuditEvent(**event) for event in list_audit_events(limit)]
+
+
+@app.get("/api/knowledge/learned", response_model=list[LearnedKnowledgeArticle])
+def learned_knowledge_articles() -> list[LearnedKnowledgeArticle]:
+    return [LearnedKnowledgeArticle(**article) for article in list_learned_articles()]
+
+
+@app.get("/api/jira/kb-candidates", response_model=list[str])
+def kb_candidate_issue_keys(limit: int = 10) -> list[str]:
+    try:
+        return list_kb_candidate_issues(limit)
+    except JiraConfigurationError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    except JiraRequestError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+
+
+def build_kb_candidate_preview(issue_key: str, request: Request) -> KnowledgeCandidatePreview:
+    try:
+        issue = get_jira_issue(issue_key)
+        labels = issue.get("labels", [])
+        if "kb-approved" not in labels:
+            raise HTTPException(status_code=409, detail="The issue is not verified with the kb-approved label.")
+        if "kb-learned" in labels:
+            raise HTTPException(status_code=409, detail="This issue has already been learned.")
+        source = find_verified_solution(get_issue_comments(issue_key))
+        draft = build_knowledge_draft(
+            summary=issue["summary"],
+            description=issue["description"],
+            solution=source["solution"],
+            systems=request.app.state.dataset["systems"],
+        )
+    except JiraConfigurationError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    except JiraRequestError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return KnowledgeCandidatePreview(
+        issue_key=issue_key.upper(),
+        source_comment_id=source["comment_id"],
+        verified_by=source["author"],
+        title=draft.title,
+        category=draft.category,
+        system_id=draft.system_id,
+        owner=owner_for_category(draft.category),
+        resolution_summary=draft.resolution_summary,
+        tags=draft.tags,
+    )
+
+
+@app.post("/api/jira/{issue_key}/preview-learning", response_model=KnowledgeCandidatePreview)
+def preview_jira_learning(issue_key: str, request: Request) -> KnowledgeCandidatePreview:
+    return build_kb_candidate_preview(issue_key, request)
+
+
+@app.post("/api/jira/{issue_key}/learn", response_model=LearnedKnowledgeArticle)
+def learn_from_jira_issue(
+    issue_key: str,
+    confirmation: LearnConfirmation,
+    request: Request,
+) -> LearnedKnowledgeArticle:
+    preview = build_kb_candidate_preview(issue_key, request)
+    try:
+        article = add_learned_article(
+            title=preview.title,
+            category=preview.category,
+            system_id=preview.system_id,
+            owner=preview.owner,
+            resolution_summary=preview.resolution_summary,
+            tags=preview.tags,
+            source_issue_key=preview.issue_key,
+            source_comment_id=preview.source_comment_id,
+            verified_by=preview.verified_by,
+            existing_articles=request.app.state.dataset["knowledge"],
+        )
+        add_labels(preview.issue_key, ["kb-learned"])
+    except ValueError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    except JiraConfigurationError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    except JiraRequestError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+    request.app.state.dataset["knowledge"].append(article)
+    team_id, team_name = TEAM_BY_CATEGORY[preview.category]
+    record_triage(
+        issue_key=preview.issue_key,
+        action="add_knowledge",
+        category=preview.category,
+        assigned_team_id=team_id,
+        assigned_team_name=team_name,
+        comment_id=preview.source_comment_id,
+        labels=["kb-approved", "kb-learned"],
+        event_type="knowledge_learned",
+    )
+    return LearnedKnowledgeArticle(**article)
+
+
+@app.post("/api/jira/learning-run", response_model=list[LearnedKnowledgeArticle])
+def autonomous_learning_run(
+    confirmation: LearningRunConfirmation,
+    request: Request,
+    limit: int = 10,
+) -> list[LearnedKnowledgeArticle]:
+    try:
+        issue_keys = list_kb_candidate_issues(limit)
+    except JiraConfigurationError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+    except JiraRequestError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+    return [
+        learn_from_jira_issue(key, LearnConfirmation(confirm="LEARN"), request)
+        for key in issue_keys
+    ]

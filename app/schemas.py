@@ -99,3 +99,39 @@ class AuditEvent(BaseModel):
     assigned_team_name: str
     comment_id: str | None
     labels: list[str]
+
+
+class LearnedKnowledgeArticle(BaseModel):
+    article_id: str
+    title: str
+    category: str
+    system_id: str
+    status: Literal["Published"]
+    last_reviewed: str
+    owner: str
+    resolution_summary: str
+    tags: str
+    source_issue_key: str
+    source_comment_id: str
+    verified_by: str
+
+
+class KnowledgeCandidatePreview(BaseModel):
+    issue_key: str
+    source_comment_id: str
+    verified_by: str
+    title: str
+    category: str
+    system_id: str | None
+    owner: str
+    resolution_summary: str
+    tags: list[str]
+    will_write: bool = False
+
+
+class LearnConfirmation(BaseModel):
+    confirm: Literal["LEARN"]
+
+
+class LearningRunConfirmation(BaseModel):
+    confirm: Literal["RUN_LEARNING"]

@@ -227,3 +227,60 @@ def list_pending_issues(limit: int = 10) -> list[dict[str, str]]:
             }
         )
     return pending
+
+
+def list_kb_candidate_issues(limit: int = 10) -> list[str]:
+    base_url = os.getenv("JIRA_BASE_URL", "").rstrip("/")
+    email = os.getenv("JIRA_EMAIL", "")
+    api_token = os.getenv("JIRA_API_TOKEN", "")
+    project_key = os.getenv("JIRA_PROJECT_KEY", "SUP").upper()
+    if not all((base_url, email, api_token)):
+        raise JiraConfigurationError("Jira credentials are incomplete in .env.")
+    response = httpx.post(
+        f"{base_url}/rest/api/3/search/jql",
+        json={
+            "jql": (
+                f'project = "{project_key}" AND labels = "kb-approved" '
+                'AND labels NOT IN ("kb-learned") ORDER BY updated ASC'
+            ),
+            "maxResults": max(1, min(limit, 50)),
+            "fields": ["key"],
+        },
+        auth=(email, api_token),
+        headers={"Accept": "application/json", "Content-Type": "application/json"},
+        timeout=20.0,
+    )
+    try:
+        response.raise_for_status()
+    except httpx.HTTPStatusError as exc:
+        raise JiraRequestError(f"Jira returned HTTP {exc.response.status_code} while listing KB candidates.") from exc
+    return [issue["key"] for issue in response.json().get("issues", [])]
+
+
+def get_issue_comments(issue_key: str) -> list[dict[str, str]]:
+    base_url = os.getenv("JIRA_BASE_URL", "").rstrip("/")
+    email = os.getenv("JIRA_EMAIL", "")
+    api_token = os.getenv("JIRA_API_TOKEN", "")
+    if not all((base_url, email, api_token)):
+        raise JiraConfigurationError("Jira credentials are incomplete in .env.")
+    try:
+        response = httpx.get(
+            f"{base_url}/rest/api/3/issue/{issue_key.upper()}/comment",
+            params={"maxResults": 100, "orderBy": "created"},
+            auth=(email, api_token),
+            headers={"Accept": "application/json"},
+            timeout=20.0,
+        )
+        response.raise_for_status()
+    except httpx.HTTPStatusError as exc:
+        raise JiraRequestError(f"Jira returned HTTP {exc.response.status_code} while reading comments.") from exc
+    except httpx.HTTPError as exc:
+        raise JiraRequestError("Could not connect to Jira while reading comments.") from exc
+    return [
+        {
+            "comment_id": str(comment.get("id", "")),
+            "body": adf_to_text(comment.get("body")),
+            "author": (comment.get("author") or {}).get("displayName", "Unknown"),
+        }
+        for comment in response.json().get("comments", [])
+    ]

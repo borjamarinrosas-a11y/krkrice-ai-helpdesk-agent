@@ -2,6 +2,9 @@ from fastapi.testclient import TestClient
 
 from app.main import app, label_slug
 from app.jira import adf_to_text, text_to_adf
+from app.knowledge import add_learned_article, list_learned_articles
+from app.learning import find_verified_solution, redact_sensitive_text
+from app.schemas import TicketInput
 
 
 def test_health_loads_dataset():
@@ -120,6 +123,39 @@ def test_unknown_error_code_never_responds_even_if_ai_selects_article(monkeypatc
     assert body["suggested_response"] is None
 
 
+def test_verified_learned_article_unlocks_exact_error_code(monkeypatch):
+    monkeypatch.setattr(
+        "app.triage.classify_with_openai",
+        lambda text, systems, knowledge: (
+            "Business Applications", "Medium", 0.95,
+            "RiceFlow error with an exact verified article.", None, 0.0,
+        ),
+    )
+    from app.repository import load_dataset
+    dataset = load_dataset()
+    dataset["knowledge"].append({
+        "article_id": "LKB-TEST",
+        "title": "Resolve RiceFlow export error RF-1000",
+        "category": "Business Applications",
+        "system_id": "SYS-002",
+        "status": "Published",
+        "last_reviewed": "2026-07-13",
+        "owner": "KRkRice IT Business Applications",
+        "resolution_summary": "Clear the failed export job, validate the batch, and retry once.",
+        "tags": "riceflow|export",
+    })
+    ticket = TicketInput(
+        issue_key="SUP-NEW",
+        summary="RiceFlow export screen shows error RF-1000",
+        description="The export failed today.",
+        use_ai=True,
+    )
+    from app.triage import make_decision
+    decision = make_decision(ticket, dataset)
+    assert decision.knowledge_matches[0].record_id in {"LKB-0001", "LKB-TEST"}
+    assert decision.decision == "respond"
+
+
 def test_adf_description_is_converted_to_plain_text():
     description = {
         "type": "doc",
@@ -222,5 +258,77 @@ def test_autonomous_run_requires_explicit_confirmation():
         response = client.post(
             "/api/jira/autonomous-run",
             json={"confirm": "PUBLISH"},
+        )
+    assert response.status_code == 422
+
+
+def test_verified_solution_can_be_stored_as_learned_knowledge(monkeypatch, tmp_path):
+    monkeypatch.setattr("app.knowledge.DB_PATH", tmp_path / "knowledge.db")
+    article = add_learned_article(
+        title="Resolve RiceFlow error RF-1000",
+        category="Business Applications",
+        system_id="SYS-011",
+        owner="KRkRice IT Business Applications",
+        resolution_summary="Clear the stuck export job, validate the batch, and retry once.",
+        tags=["riceflow", "export"],
+        source_issue_key="SUP-17",
+        source_comment_id="10100",
+        verified_by="team-lead",
+        existing_articles=[],
+    )
+    assert article["article_id"] == "LKB-0001"
+    assert article["status"] == "Published"
+    assert list_learned_articles()[0]["source_issue_key"] == "SUP-17"
+
+
+def test_similar_solution_is_rejected_as_duplicate(monkeypatch, tmp_path):
+    monkeypatch.setattr("app.knowledge.DB_PATH", tmp_path / "knowledge.db")
+    existing = [{
+        "title": "Resolve RiceFlow export error",
+        "resolution_summary": "Clear the stuck export job and retry the validated batch.",
+    }]
+    try:
+        add_learned_article(
+            title="Resolve RiceFlow export error",
+            category="Business Applications",
+            system_id="SYS-011",
+            owner="KRkRice IT Business Applications",
+            resolution_summary="Clear the stuck export job and retry the validated batch.",
+            tags=["riceflow"],
+            source_issue_key="SUP-20",
+            source_comment_id="10101",
+            verified_by="team-lead",
+            existing_articles=existing,
+        )
+    except ValueError as exc:
+        assert "similar" in str(exc)
+    else:
+        raise AssertionError("Expected duplicate knowledge to be rejected.")
+
+
+def test_learning_requires_explicit_solution_marker():
+    comments = [
+        {"comment_id": "1", "body": "Restarted the service.", "author": "Aisha"},
+        {"comment_id": "2", "body": "KB SOLUTION: Clear the failed batch and retry the validated export.", "author": "Lead"},
+    ]
+    selected = find_verified_solution(comments)
+    assert selected["comment_id"] == "2"
+    assert selected["verified_by"] if "verified_by" in selected else selected["author"] == "Lead"
+    assert selected["solution"].startswith("Clear the failed batch")
+
+
+def test_learning_redacts_credentials_and_email():
+    text = "Contact person@example.com with password: SuperSecret and token=ATATTabcdefghijklmnop"
+    redacted = redact_sensitive_text(text)
+    assert "person@example.com" not in redacted
+    assert "SuperSecret" not in redacted
+    assert "ATATTabcdefghijklmnop" not in redacted
+
+
+def test_learning_run_requires_explicit_confirmation():
+    with TestClient(app) as client:
+        response = client.post(
+            "/api/jira/learning-run",
+            json={"confirm": "RUN_AUTONOMOUS"},
         )
     assert response.status_code == 422

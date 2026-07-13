@@ -69,6 +69,14 @@ prompt, or model change.
 - Unknown error codes cannot use a generic application article as an answer.
 - `ai-triaged` prevents duplicate processing; every executed action is stored in the audit log.
 
+## Controlled learning loop
+
+Specialists can add an internal comment beginning with `KB SOLUTION:` and apply the
+`kb-approved` label after verification. The autonomous worker then redacts sensitive
+data, generalizes the solution with OpenAI, rejects duplicates, stores a traceable
+`LKB-*` article, and applies `kb-learned`. Exact verified error-code articles can answer
+future matching tickets; unrelated codes remain blocked and routed.
+
 ## Run locally
 
 ```bash

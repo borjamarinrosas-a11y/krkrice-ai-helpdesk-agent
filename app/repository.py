@@ -1,6 +1,8 @@
 import csv
 from pathlib import Path
 
+from app.knowledge import list_learned_articles
+
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "outputs" / "krkrice_it_dataset" / "csv"
 
@@ -19,7 +21,6 @@ def load_dataset() -> dict[str, list[dict[str, str]]]:
         "assets": read_csv("assets.csv"),
         "systems": read_csv("systems.csv"),
         "agents": read_csv("agents.csv"),
-        "knowledge": read_csv("knowledge_articles.csv"),
+        "knowledge": [*read_csv("knowledge_articles.csv"), *list_learned_articles()],
         "tickets": read_csv("historical_tickets.csv"),
     }
-

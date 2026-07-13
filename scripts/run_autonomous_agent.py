@@ -16,6 +16,7 @@ def main() -> None:
     parser.add_argument("--url", default="http://127.0.0.1:8000", help="Local KRkRice API base URL.")
     args = parser.parse_args()
     endpoint = f"{args.url.rstrip('/')}/api/jira/autonomous-run"
+    learning_endpoint = f"{args.url.rstrip('/')}/api/jira/learning-run"
     interval = max(args.interval, 10)
 
     print(f"Autonomous agent watching Jira every {interval} seconds. Press Control+C to stop.", flush=True)
@@ -31,6 +32,18 @@ def main() -> None:
                 response.raise_for_status()
                 for result in response.json():
                     print(f"[{timestamp()}] {result['issue_key']}: {result['decision']} -> {result['status']}", flush=True)
+                learning_response = httpx.post(
+                    learning_endpoint,
+                    params={"limit": 10},
+                    json={"confirm": "RUN_LEARNING"},
+                    timeout=120.0,
+                )
+                learning_response.raise_for_status()
+                for article in learning_response.json():
+                    print(
+                        f"[{timestamp()}] {article['source_issue_key']}: learned -> {article['article_id']}",
+                        flush=True,
+                    )
             except httpx.HTTPError as exc:
                 print(f"[{timestamp()}] Autonomous agent error: {exc}", flush=True)
             time.sleep(interval)
